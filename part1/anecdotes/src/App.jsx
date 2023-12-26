@@ -1,5 +1,12 @@
 import { useState } from 'react'
 
+  // returns random int between min and max
+  const getRandomArbitrary = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
 const Button = ({onClickFunction, text}) => {
   return (
     <button onClick={onClickFunction}>
@@ -46,12 +53,7 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
-  // returns random int between min and max
-  const getRandomArbitrary = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+
 
   const handNextQuote = () => {
     var newSelected = getRandomArbitrary(0, anecdotes.length)
@@ -75,6 +77,7 @@ const App = () => {
       <Button onClickFunction={handleVote} text='vote' />
       <Button onClickFunction={handNextQuote} text='next anecdote' />
       <BestAnecdote votes={votes} anecdotes={anecdotes} />
+      <Button onClickFunction={() => <div>heroo</div>} text='test button' />
     </div>
   )
 }
